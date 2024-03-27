@@ -28,6 +28,11 @@ class BST{
         node* createNode(int studentID, string DOB, string studentAddress);
         /*Insert Function*/
         void Insert(int studentID, string DOB, string studentAddress);
+        /*DeleteFunction*/    //Not Yet Implemented
+        /*Search Function*/    //Not Yet Implemented
+        //Search based on studentID
+        //Search based on name
+        /*Update Function*/    //Not Yet Implemented
 
 
 
