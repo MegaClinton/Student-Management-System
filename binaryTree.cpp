@@ -50,3 +50,9 @@ void BST::insertPrivate(int studentID, string DOB, string studentAddress, node* 
         cout << "The id " << studentID << " has been alread been added to the database." << endl;
     }
 }
+
+/*DeleteFunction*/    //Not Yet Implemented
+/*Search Function*/    //Not Yet Implemented
+//Search based on studentID
+//Search based on name
+/*Update Function*/    //Not Yet Implemented
