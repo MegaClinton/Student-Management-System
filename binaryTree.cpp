@@ -1,7 +1,5 @@
 #include<binaryTree.h>
 
-/*HAVE NOT FULLY TESTED JUST WRITTEN IT SO FAR*/
-
 using namespace std;
 
 BST::BST(){
