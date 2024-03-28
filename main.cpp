@@ -5,8 +5,6 @@
 #include"readIN.h"
 #include"binaryTree.h"
 
-/*CODE I AM STILL WORKING ON TO TEST COMPONENTS*/
-
 using namespace std;
 
 class Node
