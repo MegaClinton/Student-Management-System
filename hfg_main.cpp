@@ -9,6 +9,157 @@
 
 using namespace std;
 
+class Node
+{
+public:
+    //Student information
+    int ID = 0;
+    string name = "";
+    string dob = "";
+    Node* next;
+};
+
+class LinkedList
+{
+private:
+    //head node
+    Node* head;
+
+public:
+    //default constructor
+    LinkedList() : head(nullptr){}
+    //destructor
+    ~LinkedList()
+    {
+        Node* temp = head;
+        while(temp)
+        {
+            Node* nextNode = temp->next;
+            delete temp;
+            temp = nextNode;
+        }
+    }
+
+    void insertStudent(Node* node) //inserting new student
+    {
+        if(head == nullptr)
+        {
+            node->next = nullptr;
+            head = node;
+            return;
+        }
+        node->next = head;
+        head = node;
+    }
+
+    void deleteStudent(string name) //deletes student
+    {
+        Node* previous = head;
+        Node* current = head;
+        //searches for student
+        while(current)
+        {
+            if(current->name == name)
+            {
+                Node* temp = current;
+                previous->next = current->next;
+                delete temp;
+                cout << "Student deleted." << endl;
+                return;
+            }
+            else
+            {
+                previous = current;
+                current = current->next;
+            }
+        }
+    }
+
+    void display() //display linked list
+    {
+        Node* temp = head;
+        while(temp != nullptr)
+        {
+            cout << temp->name << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+
+    void search(string name) //search for student
+    {
+        Node* temp = head;
+        while(temp)
+        {
+            if(temp->name == name)
+            {
+                cout << "Name: " << temp->name << endl;
+                cout << "ID: " << temp->ID << endl;
+                cout << "Date of Birth: " << temp->dob << endl;
+                return;
+            }
+            else
+            {
+                temp = temp->next;
+            }
+        }
+        cout << "Student not found." << endl;
+    }
+
+    int getSize() //traverse through list and get size
+    {
+        int size = 0;
+        Node* temp = head;
+        while(temp)
+        {
+            size++;
+            temp = temp->next;
+        }
+        return size;
+    }
+
+    void findMiddle()
+    {
+        //calculate middle index
+        int midIndex = (getSize() - 1) / 2;
+        Node* temp = head;
+        int count = 0; //variable to keep track of index
+        while(temp)
+        {
+            if(count != midIndex)
+            {
+                temp = temp->next;
+                count++;
+            }
+            else
+            {
+                cout << "Middle element: " << temp->name << endl;
+                return;
+            }
+        }
+    }
+
+    void reverseList()
+    {
+        //Create 3 nodes
+        Node* prev = nullptr;
+        Node* curr = head;
+        Node* next = NULL;
+
+        while(curr) //traverse
+        {
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+
+        cout << "Reversal finished." << endl;
+    }
+
+};
+
 int main(){
     readIn();
     char menu;  //for main menu
