@@ -1,10 +1,6 @@
-<<<<<<< HEAD
+
 #include <iostream>
-#include<windows.h> 
-
-
-#include"readIN.h"
-#include"binaryTree.h"
+#include<windows.h>
 
 using namespace std;
 
@@ -237,6 +233,8 @@ int main(){
 
     return 0;
 =======
+=======
+>>>>>>> parent of 1fc1c9b (Add files via upload)
 #include <iostream>
 using namespace std;
 
@@ -404,12 +402,10 @@ void displayMenu()
     cout << "==================================\n";
 }
 
-int main()
-{
+int main() {
     LinkedList studentList;
 
-    while (true)
-    {
+    while (true) {
         displayMenu();
 
         int choice;
@@ -418,9 +414,8 @@ int main()
 
         switch (choice) //Corresponds to user's input
         {
-            case 1:
-            {
-                Node* newNode = new Node;
+            case 1: {
+                Node *newNode = new Node;
                 cout << "Enter student ID: ";
                 cin >> newNode->ID;
                 cout << "Enter student name: ";
@@ -431,8 +426,7 @@ int main()
                 cout << "Student inserted successfully." << endl;
                 break;
             }
-            case 2:
-            {
+            case 2: {
                 string nameToDelete;
                 cout << "Enter student name to delete: ";
                 cin >> nameToDelete;
@@ -442,8 +436,7 @@ int main()
             case 3:
                 studentList.display();
                 break;
-            case 4:
-            {
+            case 4: {
                 string nameToSearch;
                 cout << "Enter student name to search: ";
                 cin >> nameToSearch;
@@ -463,6 +456,4 @@ int main()
                 cout << "Invalid choice. Please enter a number between 1 and 6.\n";
         }
     }
-
->>>>>>> parent of 1fc1c9b (Add files via upload)
 }
