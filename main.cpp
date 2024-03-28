@@ -47,27 +47,41 @@ public:
         head = node;
     }
 
-    void deleteStudent(string name) //deletes student
+    void deleteStudent(string name) // deletes student
     {
+        if (head == nullptr) {
+            cout << "List is empty. Cannot delete." << endl;
+            return;
+        }
+
+        // If head node is the one to delete
+        if (head->name == name) {
+            Node* temp = head;
+            head = head->next; // Update head to the next node
+            delete temp; // Delete the original head
+            cout << "Student deleted." << endl;
+            return;
+        }
+
+        // For other nodes in the list
         Node* previous = head;
-        Node* current = head;
-        //searches for student
-        while(current)
-        {
-            if(current->name == name)
-            {
-                Node* temp = current;
+        Node* current = head->next;
+
+        while (current) {
+            if (current->name == name) {
                 previous->next = current->next;
-                delete temp;
+                delete current;
                 cout << "Student deleted." << endl;
                 return;
             }
-            else
-            {
+            else {
                 previous = current;
                 current = current->next;
             }
         }
+
+        // If the student is not found
+        cout << "Student not found." << endl;
     }
 
     void display()
