@@ -1,4 +1,6 @@
 #include <iostream>
+#include "readIN.h"
+
 using namespace std;
 
 class Node
@@ -8,6 +10,7 @@ public:
     int ID = 0;
     string name = "";
     string dob = "";
+    string address = "";
     Node* next;
 };
 
@@ -67,15 +70,15 @@ public:
         }
     }
 
-    void display() //display linked list
+    void display()
     {
         Node* temp = head;
-        while(temp != nullptr)
+        while (temp != nullptr)
         {
-            cout << temp->name << " ";
+            cout << temp->name << " -> ";
             temp = temp->next;
         }
-        cout << endl;
+        cout << "NULL" << endl;
     }
 
     void search(string name) //search for student
@@ -168,7 +171,39 @@ void displayMenu()
 int main() {
     LinkedList studentList;
 
-    while (true) {
+    ifstream inputFile;
+    inputFile.open("testStudents.csv");
+    string line = "";
+
+    cout << "Inserting students into Linked List.." << endl;
+    while(getline(inputFile, line))
+    {
+
+        int studentID;
+        string name;
+        string DOB;
+        string studentAddress;
+        string tempString;
+
+        stringstream inputString(line);
+
+        getline(inputString, tempString, ',');
+        studentID = atoi(tempString.c_str());
+        getline(inputString, name, ',');
+        getline(inputString, DOB, ',');
+        getline(inputString, studentAddress);
+
+        Node* student = new Node;
+        student->name = name;
+        student->dob = DOB;
+        student->address = studentAddress;
+        student->ID = studentID;
+        studentList.insertStudent(student);
+    }
+    cout << "Inserting finished." << endl;
+
+    while (true)
+    {
         displayMenu();
 
         int choice;
@@ -185,6 +220,8 @@ int main() {
                 cin >> newNode->name;
                 cout << "Enter student date of birth: ";
                 cin >> newNode->dob;
+                cout << "Enter student address: ";
+                cin >> newNode->address;
                 studentList.insertStudent(newNode);
                 cout << "Student inserted successfully." << endl;
                 break;
