@@ -49,13 +49,15 @@ public:
 
     void deleteStudent(string name) // deletes student
     {
-        if (head == nullptr) {
+        if (head == nullptr)
+        {
             cout << "List is empty. Cannot delete." << endl;
             return;
         }
 
         // If head node is the one to delete
-        if (head->name == name) {
+        if (head->name == name)
+        {
             Node* temp = head;
             head = head->next; // Update head to the next node
             delete temp; // Delete the original head
@@ -67,7 +69,8 @@ public:
         Node* previous = head;
         Node* current = head->next;
 
-        while (current) {
+        while (current)
+        {
             if (current->name == name) {
                 previous->next = current->next;
                 delete current;
@@ -267,7 +270,7 @@ int main() {
                 cout << "Exiting program. Goodbye!\n";
                 return 0;
             default:
-                cout << "Invalid choice. Please enter a number between 1 and 6.\n";
+                cout << "Invalid choice. Please enter a number between 1 and 7.\n";
         }
     }
 }
