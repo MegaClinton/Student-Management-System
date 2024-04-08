@@ -43,8 +43,13 @@ public:
             head = node;
             return;
         }
-        node->next = head;
-        head = node;
+        Node* current = head;
+        while (current->next != nullptr) // Traverse to the end of the list
+        {
+            current = current->next;
+        }
+        current->next = node; // Link the new node to the last node
+        node->next = nullptr;
     }
 
     void deleteStudent(string name) // deletes student
