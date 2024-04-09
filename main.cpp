@@ -103,16 +103,17 @@ public:
         cout << "NULL" << endl;
     }
 
-    void search(string name) //search for student
+    void search(int ID) //search for student
     {
         Node* temp = head;
         while(temp)
         {
-            if(temp->name == name)
+            if(temp->ID == ID)
             {
                 cout << "Name: " << temp->name << endl;
                 cout << "ID: " << temp->ID << endl;
                 cout << "Date of Birth: " << temp->dob << endl;
+                cout << "Address: " << temp->address << endl;
                 return;
             }
             else
@@ -123,56 +124,76 @@ public:
         cout << "Student not found." << endl;
     }
 
-    int getSize() //traverse through list and get size
+    void searchName(string name) //search for student
     {
-        int size = 0;
         Node* temp = head;
         while(temp)
         {
-            size++;
-            temp = temp->next;
-        }
-        return size;
-    }
-
-    void findMiddle()
-    {
-        //calculate middle index
-        int midIndex = (getSize() - 1) / 2;
-        Node* temp = head;
-        int count = 0; //variable to keep track of index
-        while(temp)
-        {
-            if(count != midIndex)
+            if(temp->name == name)
             {
-                temp = temp->next;
-                count++;
+                cout << "Name: " << temp->name << endl;
+                cout << "ID: " << temp->ID << endl;
+                cout << "Date of Birth: " << temp->dob << endl;
+                cout << "Address: " << temp->address << endl;
+                return;
             }
             else
             {
-                cout << "Middle element: " << temp->name << endl;
-                return;
+                temp = temp->next;
             }
         }
+        cout << "Student not found." << endl;
     }
 
-    void reverseList()
+    void updateStudent(int ID)
     {
-        //Create 3 nodes
-        Node* prev = nullptr;
-        Node* curr = head;
-        Node* next = NULL;
-
-        while(curr) //traverse
+        Node* temp = head;
+        while (temp)
         {
-            next = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = next;
-        }
-        head = prev;
+            if (temp->ID == ID) {
+                cout << "Current Information:" << endl;
+                cout << "Name: " << temp->name << endl;
+                cout << "ID: " << temp->ID << endl;
+                cout << "Date of Birth: " << temp->dob << endl;
+                cout << "Address: " << temp->address << endl;
+                cout << endl;
 
-        cout << "Reversal finished." << endl;
+                // Provide options to modify information
+                cout << "Enter new information (press enter to keep current):" << endl;
+                cout << "New Name: ";
+                string newName;
+                cin.ignore();
+                getline(cin, newName);
+                if (!newName.empty())
+                {
+                    temp->name = newName;
+                }
+
+                cout << "New Date of Birth: ";
+                string newDOB;
+                getline(cin, newDOB);
+                if (!newDOB.empty())
+                {
+                    temp->dob = newDOB;
+                }
+
+                cout << "New Address: ";
+                string newAddress;
+                getline(cin, newAddress);
+                if (!newAddress.empty())
+                {
+                    temp->address = newAddress;
+                }
+
+                cout << "Information updated successfully." << endl;
+                return;
+            }
+            else
+            {
+                temp = temp->next;
+            }
+        }
+        cout << "Student not found." << endl;
     }
 
 };
@@ -182,10 +203,10 @@ void displayMenu()
     cout << "\n==== Student Management System ====\n";
     cout << "1. Insert Student\n";
     cout << "2. Delete Student\n";
-    cout << "3. Display Students\n";
-    cout << "4. Search for Student\n";
-    cout << "5. Find Middle Student\n";
-    cout << "6. Reverse list\n";
+    cout << "3. Search student with ID\n";
+    cout << "4. Search student with name\n";
+    cout << "5. Update student\n";
+    cout << "6. Display Students\n";
     cout << "7. Exit\n";
     cout << "==================================\n";
 }
@@ -249,28 +270,37 @@ int main() {
                 break;
             }
             case 2: {
-                string nameToDelete;
-                cout << "Enter student name to delete: ";
-                cin >> nameToDelete;
-                studentList.deleteStudent(nameToDelete);
+                int ID;
+                cout << "Enter student ID to delete: ";
+                cin >> ID;
+                studentList.deleteStudent(ID);
                 break;
             }
-            case 3:
-                studentList.display();
-                break;
-            case 4: {
+            case 3: {
                 int ID;
                 cout << "Enter student ID to search: ";
                 cin >> ID;
                 studentList.search(ID);
                 break;
             }
-            case 5:
-                studentList.findMiddle();
+            case 4: {
+                string name;
+                cout << "Enter student name to search: ";
+                cin >> name;
+                studentList.searchName(name);
                 break;
-            case 6:
-                studentList.reverseList();
+            }
+            case 5: {
+                int ID;
+                cout << "Enter student ID to update: ";
+                cin >> ID;
+                studentList.updateStudent(ID);
                 break;
+            }
+            case 6: {
+                studentList.display();
+                break;
+            }
             case 7:
                 cout << "Exiting program. Goodbye!\n";
                 return 0;
