@@ -52,7 +52,7 @@ public:
         node->next = nullptr;
     }
 
-    void deleteStudent(string name) // deletes student
+    void deleteStudent(int ID) // deletes student
     {
         if (head == nullptr)
         {
@@ -61,7 +61,7 @@ public:
         }
 
         // If head node is the one to delete
-        if (head->name == name)
+        if (head->ID == ID)
         {
             Node* temp = head;
             head = head->next; // Update head to the next node
@@ -76,7 +76,7 @@ public:
 
         while (current)
         {
-            if (current->name == name) {
+            if (current->ID == ID) {
                 previous->next = current->next;
                 delete current;
                 cout << "Student deleted." << endl;
@@ -259,10 +259,10 @@ int main() {
                 studentList.display();
                 break;
             case 4: {
-                string nameToSearch;
-                cout << "Enter student name to search: ";
-                cin >> nameToSearch;
-                studentList.search(nameToSearch);
+                int ID;
+                cout << "Enter student ID to search: ";
+                cin >> ID;
+                studentList.search(ID);
                 break;
             }
             case 5:
