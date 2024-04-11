@@ -1,7 +1,9 @@
 #include <iostream>
 #include "readIN.h"
+#include <chrono>
 
 using namespace std;
+using namespace std::chrono;
 
 class Node
 {
@@ -265,36 +267,55 @@ int main() {
                 cin >> newNode->dob;
                 cout << "Enter student address: ";
                 cin >> newNode->address;
+                auto start = high_resolution_clock::now();
                 studentList.insertStudent(newNode);
-                cout << "Student inserted successfully." << endl;
+                auto stop = high_resolution_clock::now();
+                auto duration = duration_cast<microseconds>(stop - start);
+                cout << "Student inserted successfully after " << duration.count() << " microseconds." << endl; 
                 break;
             }
             case 2: {
                 int ID;
                 cout << "Enter student ID to delete: ";
                 cin >> ID;
+                auto start = high_resolution_clock::now();
                 studentList.deleteStudent(ID);
+                auto stop = high_resolution_clock::now();
+                auto duration = duration_cast<microseconds>(stop - start);
+                cout << "Student successfully deleted after " << duration.count() << " microseconds." << endl;
                 break;
             }
             case 3: {
                 int ID;
                 cout << "Enter student ID to search: ";
                 cin >> ID;
+                auto start = high_resolution_clock::now();
                 studentList.search(ID);
+                auto stop = high_resolution_clock::now();
+                auto duration = duration_cast<microseconds>(stop - start);
+                cout << "Student successfully searched after " << duration.count() << " microseconds." << endl;
                 break;
             }
             case 4: {
                 string name;
                 cout << "Enter student name to search: ";
                 cin >> name;
+                auto start = high_resolution_clock::now();
                 studentList.searchName(name);
+                auto stop = high_resolution_clock::now();
+                auto duration = duration_cast<microseconds>(stop - start);
+                cout << "Student successfully searched after " << duration.count() << " microseconds." << endl;
                 break;
             }
             case 5: {
                 int ID;
                 cout << "Enter student ID to update: ";
                 cin >> ID;
+                auto start = high_resolution_clock::now();
                 studentList.updateStudent(ID);
+                auto stop = high_resolution_clock::now();
+                auto duration = duration_cast<microseconds>(stop - start);
+                cout << "Student successfully updated after " << duration.count() << " microseconds." << endl;
                 break;
             }
             case 6: {
