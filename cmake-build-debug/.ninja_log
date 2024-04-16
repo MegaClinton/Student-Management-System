@@ -1,0 +1,20 @@
+# ninja log v5
+0	287	7349829287980612	CMakeFiles/3110_Group_Project.dir/mainBinaryTree.cpp.obj	772fbf0c9bf6740b
+2	215	7349829456060466	CMakeFiles/3110_Group_Project.dir/binaryTree.cpp.obj	80923de036809017
+215	278	7349829456661456	3110_Group_Project.exe	2984637e485a8edf
+2	240	7349832947538791	CMakeFiles/3110_Group_Project.dir/mainBinaryTree.cpp.obj	772fbf0c9bf6740b
+240	307	7349832948199199	3110_Group_Project.exe	2984637e485a8edf
+1	234	7349837078519722	CMakeFiles/3110_Group_Project.dir/mainBinaryTree.cpp.obj	772fbf0c9bf6740b
+234	315	7349837079304805	3110_Group_Project.exe	2984637e485a8edf
+1	233	7349838389168201	CMakeFiles/3110_Group_Project.dir/mainBinaryTree.cpp.obj	772fbf0c9bf6740b
+234	293	7349838389743166	3110_Group_Project.exe	2984637e485a8edf
+2	212	7349840583277868	CMakeFiles/3110_Group_Project.dir/binaryTree.cpp.obj	80923de036809017
+213	273	7349840583851128	3110_Group_Project.exe	2984637e485a8edf
+1	208	7349842696241469	CMakeFiles/3110_Group_Project.dir/binaryTree.cpp.obj	80923de036809017
+208	268	7349842696833877	3110_Group_Project.exe	2984637e485a8edf
+2	199	7349842793250303	CMakeFiles/3110_Group_Project.dir/binaryTree.cpp.obj	80923de036809017
+200	260	7349842793831563	3110_Group_Project.exe	2984637e485a8edf
+2	202	7349842917690756	CMakeFiles/3110_Group_Project.dir/binaryTree.cpp.obj	80923de036809017
+202	260	7349842918246075	3110_Group_Project.exe	2984637e485a8edf
+1	208	7349843202382708	CMakeFiles/3110_Group_Project.dir/binaryTree.cpp.obj	80923de036809017
+208	268	7349843202947679	3110_Group_Project.exe	2984637e485a8edf

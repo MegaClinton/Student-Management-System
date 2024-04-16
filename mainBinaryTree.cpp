@@ -98,7 +98,6 @@ int main(){
 				if(tempID == 0 || tempID<1){
 					cout << endl;
 					cout << "Sorry that Input is invalid!!!" << endl;
-					usleep(2000000);
 					cout << endl;
 					break;
 				}
@@ -106,7 +105,6 @@ int main(){
 				//cout << "This is what tempCheck has: " << tempCheck << endl;
 				if(tempCheck == true){
 					cout << "Sorry that ID already exists" << endl;
-					usleep(2000000);
 					break;
 				}
 				else{
@@ -122,7 +120,7 @@ int main(){
 					binaryTree.Insert(tempID, tempName, tempDOB, tempAddress);
 				}
                 //Sleep(2000); windows.h 
-				usleep(2000000);	//unistd.h 
+					//unistd.h
                 cout << endl;
                 break;
             
@@ -134,9 +132,9 @@ int main(){
 				cin >> tempID;
 				cout << "You entered: " << tempID << endl;
 				binaryTree.Delete(tempID);
-				
                 //Sleep(2000);
-				usleep(2000000);
+
+
                 cout << endl;
                 break;
             case 's':
@@ -154,17 +152,15 @@ int main(){
 					cout << endl;
 					cout << endl;
 					
-					usleep(2000000);
 					break;
 				}
 				else{
 					cout << "Sorry that student is not in the database." << endl;
 					cout << endl;
-					usleep(2000000);
 					break;
 				}
                 //Sleep(2000);
-				usleep(2000000);
+
                 cout << endl;
                 break;
             case 'n':
@@ -175,7 +171,7 @@ int main(){
 				getline(cin >> ws, tempName);
 				cout << "Name entered: "<< tempName << endl;
                 //Sleep(2000);
-				usleep(2000000);
+
                 cout << endl;
                 break;
             case 'u':
@@ -207,19 +203,17 @@ int main(){
 					binaryTree.returnNodeContent(tempID);
 					cout << endl;
 					cout << endl;
-					usleep(2000000);
 					break;
 				}
 				else{
 					cout << "Sorry that student is not in the database." << endl;
 					cout << endl;
-					usleep(2000000);
 					break;
 				}
 				
 				
                 //Sleep(2000);
-				usleep(2000000);
+
                 cout << endl;
                 break;
             case 'q':
@@ -227,14 +221,14 @@ int main(){
                 cout << endl;
                 cout << "Quitting..." << endl;
                 //Sleep(1000);
-				usleep(2000000);
+
 
                 cout << endl;
                 break;
             default:
                 cout << "Sorry wrong input, please try again, Once Menu Pops Up Again!!!" << endl;
                 //Sleep(3000);
-				usleep(2000000);
+
                 cout << endl;
                 break;
 
