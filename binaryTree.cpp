@@ -196,24 +196,47 @@ bool BST::ifNodeExists(int studentID){
 	}
 }
 
+/*Boolean Check to see if Name node exists*/
+bool BST::ifNodeNameExists(string studentName){
+	if(searchByName(studentName)==NULL){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
 /*Finds and returns pointer to user from Name*/
 BST::node* BST::searchByName(string name){
     return searchByNamePrivate(name, root);
 }
 
 BST::node* BST::searchByNamePrivate(string name, node* Ptr){
-    if (root == nullptr || Ptr->name == name) {
+    if (Ptr == nullptr || Ptr->name == name) {
             return Ptr;
-        }
-
-        node* leftResult = searchByNamePrivate(name, Ptr->left);
-        if (leftResult) {
-            return leftResult;
-        }
-
-        return searchByNamePrivate(name, Ptr->right);
+    }
+	node* leftResult = searchByNamePrivate(name, Ptr->left);
+    node* rightResult = searchByNamePrivate(name, Ptr->right);
+    return leftResult ? leftResult : rightResult;
 }
 
+/*For the Search function to display all the info to user*/
+void BST::returnNodeNameContent(string studentName){
+	returnNodeNamePrivate(studentName, root);
+}
+
+void BST::returnNodeNamePrivate(string studentName, node* Ptr){
+	if(Ptr != NULL){
+		Ptr = searchByNamePrivate(studentName, Ptr);
+		cout << "Student ID: " << Ptr->studentID << endl;
+		cout << "Student Name: " << Ptr->name << endl;
+		cout << "Student DOB: " << Ptr->DOB << endl;
+		cout << "Student Address: " << Ptr->studentAddress << endl;
+	}
+	else{
+		cout << "Name not in sytem" << endl;
+	}
+}
 
 
 
