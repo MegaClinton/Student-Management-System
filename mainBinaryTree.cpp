@@ -167,11 +167,28 @@ int main(){
             case 'N':
                 cout << endl;
                 cout << "You are in the search[NAME] student section" << endl;
-				cout << "Enter name of student: ";
-				getline(cin >> ws, tempName);
-				cout << "Name entered: "<< tempName << endl;
+		cout << "Enter name of student: ";
+		getline(cin >> ws, tempName);
+		cout << "Name entered: "<< tempName << endl;
+		tempCheck = binaryTree.ifNodeNameExists(tempName);
+		if(tempCheck == true){
+			cout << endl;
+			binaryTree.returnNodeNameContent(tempName);
+			cout << endl;
+			cout << endl;
+					
+			//usleep(2000000);
+			break;
+		}
+		else{
+			cout << "Sorry that student is not in the database." << endl;
+			cout << endl;
+			//usleep(2000000);
+			break;
+		}
+				
                 //Sleep(2000);
-
+		//usleep(2000000);
                 cout << endl;
                 break;
             case 'u':
