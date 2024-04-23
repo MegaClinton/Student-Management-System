@@ -82,8 +82,6 @@ void BST::deletePrivate(int studentID, node* Ptr){
                 delete delPTR;	//Deletes old root
                 cout<< endl;
                 cout << "The student ID: " << studentID << " was deleted." << endl;	//Displays to user that node is now deleted
-                //Sleep(2000);
-				usleep(2000000);
                 cout << endl;
             }
             else if(root->left != NULL && root->right == NULL){
@@ -92,8 +90,6 @@ void BST::deletePrivate(int studentID, node* Ptr){
                 delete delPTR;	//Deletes old root
                 cout<< endl;
                 cout << "The student ID: " << studentID << " was deleted." << endl;	//Displays to user that node is now deleted
-                //Sleep(2000);
-				usleep(2000000);
                 cout << endl;
             }
 
@@ -114,8 +110,6 @@ void BST::deletePrivate(int studentID, node* Ptr){
 				root->studentAddress = tempAddress;
                 cout << endl;
                 cout << "The student ID: " << studentID << " was deleted." << endl;	//Displays to user that node is now deleted
-                //Sleep(2000);
-				usleep(2000000);
                 cout << endl;
             }
 
@@ -144,8 +138,6 @@ void BST::deletePrivate(int studentID, node* Ptr){
             else{	//Does not find the ID of student entered by user
                 cout << endl;
                 cout << "The student ID: " << studentID << " does not exist." << endl;
-                //Sleep(2000);
-				usleep(2000000);
                 cout << endl;
             }
         }
@@ -153,8 +145,6 @@ void BST::deletePrivate(int studentID, node* Ptr){
     else{
         cout << endl;
         cout << "The database is empty." << endl;
-        //Sleep(2000);
-		usleep(2000000);
         cout << endl;
     }
 }
@@ -286,8 +276,6 @@ void BST::removeMatch(node* Ptr, node* match, bool left){
             delete delPtr;
             cout << endl;
             cout << "The student ID: " << matchKey << " was deleted." << endl;
-            //Sleep(2000);
-			usleep(2000000);
             cout << endl;
         }
         else if(match->left != NULL && match->right == NULL){
@@ -297,8 +285,6 @@ void BST::removeMatch(node* Ptr, node* match, bool left){
             delete delPtr;
             cout << endl;
             cout << "The student ID: " << matchKey << " was deleted." << endl;
-            //Sleep(2000);
-			usleep(2000000);
             cout << endl;
         }
 
