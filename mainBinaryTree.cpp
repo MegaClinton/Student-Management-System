@@ -4,12 +4,14 @@
 #include<unistd.h>	//linux
 #include<fstream>
 #include<sstream>
+#include <chrono>
 
 
 //#include"readIN.h"
 //#include"binaryTree.h"
 
 using namespace std;
+using namespace std::chrono;
 
 
 int main(){
@@ -117,7 +119,11 @@ int main(){
 					cout << "Enter student Address[ex. 200 mulberry st, Denton, TX 76201]: ";
 					getline(cin >> ws, tempAddress);
 					cout << "Address entered: " << tempAddress << endl;
+					auto start = high_resolution_clock::now();
 					binaryTree.Insert(tempID, tempName, tempDOB, tempAddress);
+					auto stop = high_resolution_clock::now();
+					auto duration = duration_cast<microseconds>(stop - start);
+					cout << "Successfully inserted after " << duration.count() << " microseconds." << endl;
 				}
                 //Sleep(2000); windows.h 
 					//unistd.h
@@ -131,7 +137,11 @@ int main(){
 				cout << "Enter student ID: ";
 				cin >> tempID;
 				cout << "You entered: " << tempID << endl;
-				binaryTree.Delete(tempID);
+		    		auto start = high_resolution_clock::now();
+		   		binaryTree.Delete(tempID);
+				auto stop = high_resolution_clock::now();
+				auto duration = duration_cast<microseconds>(stop - start);
+				cout << "Successfully deleted after " << duration.count() << " microseconds." << endl;
                 //Sleep(2000);
 
 
@@ -144,7 +154,11 @@ int main(){
 				cout << "Enter student ID: ";
 				cin >> tempID;
 				cout << "You entered: " << tempID << endl;
+		    		auto start = high_resolution_clock::now();
 				tempCheck = binaryTree.ifNodeExists(tempID);
+		    		auto stop = high_resolution_clock::now();
+				auto duration = duration_cast<microseconds>(stop - start);
+				cout << "Successfully searched after " << duration.count() << " microseconds." << endl;
 				//cout << "This is what tempCheck has: " << tempCheck << endl;
 				if(tempCheck == true){
 					cout << endl;
@@ -170,7 +184,11 @@ int main(){
 		cout << "Enter name of student: ";
 		getline(cin >> ws, tempName);
 		cout << "Name entered: "<< tempName << endl;
+		auto start = high_resolution_clock::now();
 		tempCheck = binaryTree.ifNodeNameExists(tempName);
+		auto stop = high_resolution_clock::now();
+		auto duration = duration_cast<microseconds>(stop - start);
+		cout << "Successfully searched after " << duration.count() << " microseconds." << endl;
 		if(tempCheck == true){
 			cout << endl;
 			binaryTree.returnNodeNameContent(tempName);
@@ -198,7 +216,11 @@ int main(){
 				cout << "Enter student ID: ";
 				cin >> tempID;
 				cout << "You entered: " << tempID << endl;
+		    		auto start = high_resolution_clock::now();
 				tempCheck = binaryTree.ifNodeExists(tempID);
+		    		auto stop = high_resolution_clock::now();
+				auto duration = duration_cast<microseconds>(stop - start);
+				cout << "Successfully searched after " << duration.count() << " microseconds." << endl;
 				//cout << "This is what tempCheck has: " << tempCheck << endl;
 				if(tempCheck == true){
 					cout << endl;
