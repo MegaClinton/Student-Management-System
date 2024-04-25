@@ -149,10 +149,13 @@ public:
 
     void updateStudent(int ID)
     {
+        auto start = high_resolution_clock::now();
         Node* temp = head;
         while (temp)
         {
             if (temp->ID == ID) {
+                auto stop = high_resolution_clock::now();
+                auto duration = duration_cast<microseconds>(stop - start);
                 cout << "Current Information:" << endl;
                 cout << "Name: " << temp->name << endl;
                 cout << "ID: " << temp->ID << endl;
@@ -188,6 +191,7 @@ public:
                 }
 
                 cout << "Information updated successfully." << endl;
+                cout << "Student successfully updated after " << duration.count() << " microseconds." << endl;
                 return;
             }
             else
@@ -195,6 +199,9 @@ public:
                 temp = temp->next;
             }
         }
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(stop - start);
+        cout << "Search took " << duration.count() << " microseconds." << endl;
         cout << "Student not found." << endl;
     }
 
@@ -311,11 +318,8 @@ int main() {
                 int ID;
                 cout << "Enter student ID to update: ";
                 cin >> ID;
-                auto start = high_resolution_clock::now();
+
                 studentList.updateStudent(ID);
-                auto stop = high_resolution_clock::now();
-                auto duration = duration_cast<microseconds>(stop - start);
-                cout << "Student successfully updated after " << duration.count() << " microseconds." << endl;
                 break;
             }
             case 6: {
