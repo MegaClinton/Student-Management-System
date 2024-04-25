@@ -179,6 +179,7 @@ int main() {
                 cout << "Enter student ID: ";
                 cin >> tempID;
                 cout << "You entered: " << tempID << endl;
+                start = high_resolution_clock::now();
                 tempCheck = binaryTree.ifNodeExists(tempID);
                 stop = high_resolution_clock::now();
                 duration = duration_cast<microseconds>(stop - start);
