@@ -22,7 +22,6 @@ int main() {
 
     ifstream inputFile;
     inputFile.open("testStudents.csv");
-    //inputFile.open("testStudents_prev.csv");
     string line = "";
 
     while (getline(inputFile, line)) {
@@ -180,7 +179,6 @@ int main() {
                 cout << "Enter student ID: ";
                 cin >> tempID;
                 cout << "You entered: " << tempID << endl;
-                start = high_resolution_clock::now();
                 tempCheck = binaryTree.ifNodeExists(tempID);
                 stop = high_resolution_clock::now();
                 duration = duration_cast<microseconds>(stop - start);
@@ -199,7 +197,11 @@ int main() {
                     cout << "Enter student Address[ex. 200 mulberry st, Denton, TX 76201]: ";
                     getline(cin >> ws, tempAddress);
                     cout << "Address entered: " << tempAddress << endl;
+                    start = high_resolution_clock::now();
                     binaryTree.updateNode(tempID, tempName, tempDOB, tempAddress);
+                    stop = high_resolution_clock::now();
+                    duration = duration_cast<microseconds>(stop - start);
+                    cout << "Successfully updated after " << duration.count() << " microseconds." << endl;
                     cout << endl;
                     cout << "Updated information----" << endl;
                     binaryTree.returnNodeContent(tempID);
