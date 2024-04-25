@@ -261,11 +261,6 @@ void BST::removeMatch(node* Ptr, node* match, bool left){
             delPtr = match;
             left == true ? Ptr->left = NULL : Ptr->right = NULL;
             delete delPtr;
-            cout << endl;
-            cout << "The student ID: " << matchKey << " was deleted." << endl;
-            //Sleep(2000);
-			usleep(2000000);
-            cout << endl;
         }
 
         /*Node has 1 Child*/
@@ -274,25 +269,27 @@ void BST::removeMatch(node* Ptr, node* match, bool left){
             match->right = NULL;
             delPtr = match;
             delete delPtr;
-            cout << endl;
-            cout << "The student ID: " << matchKey << " was deleted." << endl;
-            cout << endl;
         }
         else if(match->left != NULL && match->right == NULL){
             left == true ? Ptr->left = match->left : Ptr->right = match->left;
             match->left = NULL;
             delPtr = match;
             delete delPtr;
-            cout << endl;
-            cout << "The student ID: " << matchKey << " was deleted." << endl;
-            cout << endl;
         }
 
         /*Node has 2 Children*/
         else{
             smallestInRightSubTree = findSmallestPrivate(match->right);
+	    node* tempNode = findNodeID(smallestInRightSubTree);
+	    int tempID = tempNode->studentID;
+	    string tempName = tempNode->name;
+            string tempDOB = tempNode->DOB;
+	    string tempAddress = tempNode->studentAddress;
             deletePrivate(smallestInRightSubTree, match);
             match->studentID = smallestInRightSubTree;
+	    match->name = tempName;
+	    match->DOB = tempDOB;
+	    match->studentAddress = tempAddress;
             
         }
     }
