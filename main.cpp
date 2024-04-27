@@ -224,7 +224,7 @@ int main() {
     LinkedList studentList;
 
     ifstream inputFile;
-    inputFile.open("testStudents.csv");
+    inputFile.open("testStudentswithLastName.csv");
     string line = "";
 
     cout << "Inserting students into Linked List.." << endl;
@@ -258,22 +258,25 @@ int main() {
     {
         displayMenu();
 
-        int choice;
+        char choice;
         cout << "Enter your choice (1-7): ";
         cin >> choice;
 
         switch (choice) //Corresponds to user's input
         {
-            case 1: {
+            case '1': {
                 Node *newNode = new Node;
                 cout << "Enter student ID: ";
                 cin >> newNode->ID;
                 cout << "Enter student name: ";
-                cin >> newNode->name;
+                getline(cin >> ws, newNode->name);
+                //cin >> newNode->name;
                 cout << "Enter student date of birth: ";
-                cin >> newNode->dob;
+                getline(cin >> ws, newNode->dob);
+                //cin >> newNode->dob;
                 cout << "Enter student address: ";
-                cin >> newNode->address;
+                getline(cin >> ws, newNode->address);
+                //cin >> newNode->address;
                 auto start = high_resolution_clock::now();
                 studentList.insertStudent(newNode);
                 auto stop = high_resolution_clock::now();
@@ -281,7 +284,7 @@ int main() {
                 cout << "Student inserted successfully after " << duration.count() << " microseconds." << endl; 
                 break;
             }
-            case 2: {
+            case '2': {
                 int ID;
                 cout << "Enter student ID to delete: ";
                 cin >> ID;
@@ -292,7 +295,7 @@ int main() {
                 cout << "Student successfully deleted after " << duration.count() << " microseconds." << endl;
                 break;
             }
-            case 3: {
+            case '3': {
                 int ID;
                 cout << "Enter student ID to search: ";
                 cin >> ID;
@@ -303,10 +306,11 @@ int main() {
                 cout << "Student successfully searched after " << duration.count() << " microseconds." << endl;
                 break;
             }
-            case 4: {
+            case '4': {
                 string name;
                 cout << "Enter student name to search: ";
-                cin >> name;
+                getline(cin >> ws, name);
+                //cin >> name;
                 auto start = high_resolution_clock::now();
                 studentList.searchName(name);
                 auto stop = high_resolution_clock::now();
@@ -314,7 +318,7 @@ int main() {
                 cout << "Student successfully searched after " << duration.count() << " microseconds." << endl;
                 break;
             }
-            case 5: {
+            case '5': {
                 int ID;
                 cout << "Enter student ID to update: ";
                 cin >> ID;
@@ -322,15 +326,16 @@ int main() {
                 studentList.updateStudent(ID);
                 break;
             }
-            case 6: {
+            case '6': {
                 studentList.display();
                 break;
             }
-            case 7:
+            case '7':
                 cout << "Exiting program. Goodbye!\n";
                 return 0;
             default:
                 cout << "Invalid choice. Please enter a number between 1 and 7.\n";
+                break;
         }
     }
 }
