@@ -6,10 +6,6 @@
 #include <sstream>
 #include <chrono>
 
-
-//#include"readIN.h"
-//#include"binaryTree.h"
-
 using namespace std;
 using namespace std::chrono;
 
@@ -21,7 +17,7 @@ int main() {
     string tAddString;
 
     ifstream inputFile;
-    inputFile.open("testStudents.csv");
+    inputFile.open("testStudentswithLastName.csv");
     string line = "";
 
     while (getline(inputFile, line)) {
@@ -63,6 +59,10 @@ int main() {
 
     do {
         /*Print Menu*/
+        cout << "********************************************************" << endl;
+		cout << "Student ID Randomly Generated from 100000 - 299999" << endl;
+		cout << "3 not in use ID slots for testing are 289670, 103842, 138567" << endl;
+		cout << "********************************************************" << endl;
         cout << "Main Menu" << endl;
         cout << "a - Add Student" << endl;
         cout << "d - Delete Student" << endl;
