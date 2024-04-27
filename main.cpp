@@ -209,6 +209,9 @@ public:
 
 void displayMenu()
 {
+    cout << "\n****************\n";
+	cout << "3 ID slots that are free for testing are: 289670, 103842, 138567";
+	cout << "\n****************";
     cout << "\n==== Student Management System ====\n";
     cout << "1. Insert Student\n";
     cout << "2. Delete Student\n";
