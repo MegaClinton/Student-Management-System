@@ -1,6 +1,12 @@
 # 3110-Group6
 # Project Binary Tree
 
+#Group 6 Members
+Clinton Nguyen
+Hugo Granados
+Dylan  Graham
+Hassan Yahfoufi
+
 This is for the binary tree program.
 
 #Files needed to run program
