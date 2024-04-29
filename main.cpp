@@ -1,5 +1,7 @@
 #include <iostream>
-#include "readIN.h"
+#include<string>
+#include<fstream>
+#include<sstream>
 #include <chrono>
 
 using namespace std;
