@@ -1,6 +1,12 @@
 # 3110-Group6
 # Project LinkedList
 
+#Group 6 Members
+Clinton Nguyen
+Hugo Granados
+Dylan  Graham
+Hassan Yahfoufi
+
 This is for the linked list program.
 
 #Files needed to run linked list
