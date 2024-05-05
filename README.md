@@ -1,11 +1,4 @@
-# 3110-Group6
-# Project Binary Tree
-
-#Group 6 Members
-Clinton Nguyen
-Hugo Granados
-Dylan  Graham
-Hassan Yahfoufi
+# Student Management System
 
 This is for the binary tree program.
 
